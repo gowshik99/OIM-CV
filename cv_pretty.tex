@@ -14,7 +14,7 @@
 \usepackage[a4paper]{geometry} 
 \usepackage{eso-pic} 
 \usepackage{paracol} 
-\usepackage{graphicx} \graphicspath{{assets/}} 
+\usepackage{graphicx} 
 \usepackage{fancyhdr} 
 \usepackage{changepage}  
 \definecolor{Sidebar}{HTML}{19395E} 
@@ -83,7 +83,7 @@
 
 \AddToShipoutPictureFG{%
 
-\begin{tikzpicture}[remember picture,overlay]  \node (puz) [anchor=north east, inner sep=0pt, opacity=0] at  ([xshift=-\RightBar+25.71mm,yshift=-9mm]current page.north east)  {\includegraphics[width=52mm]{puzzle1.png}};  \node[font=\bfseries\Large, text=white]  at ($ (puz.center)!0.5!(puz.east) + (-4mm,4.5mm) $) {MM};  
+\begin{tikzpicture}[remember picture,overlay]  \node (puz) [anchor=north east, inner sep=0pt, opacity=0] at  ([xshift=-\RightBar+25.71mm,yshift=-9mm]current page.north east)  {\includegraphics[width=52mm]{assets/puzzle1.png}};  \node[font=\bfseries\Large, text=white]  at ($ (puz.center)!0.5!(puz.east) + (-4mm,4.5mm) $) {MM};  
 \end{tikzpicture}%
   }%
  }  
@@ -99,7 +99,7 @@
 \AddToShipoutPictureFG{%
 
 \begin{tikzpicture}[remember picture,overlay]  \node[anchor=south west, inner sep=0pt] at  ([xshift=\LeftMargin,yshift=10mm]current page.south west)  {\makebox[\dimexpr\textwidth-\RightBar-\Gutter\relax][c]{%
-  \raisebox{-2pt}{\includegraphics[height=12mm]{OIM logo.png}}\hspace{1mm}%
+  \raisebox{-2pt}{\includegraphics[height=12mm]{assets/OIM_logo.png}}\hspace{1mm}%
   {\small\bfseries
 \color{Accent}\mbox{Quality, Integrity, Reliability}}%
   }};  
@@ -142,45 +142,48 @@
 \end{paracol}  
 \vspace{10pt}  
 \begin{paracol}{2}  
-\mainhead{Executive Summary} Resourceful and dedicated Mechanical Engineer with over 15 years of experience in quality assurance and control across various industries, including aeronautics and energy. Proven ability to manage complex projects while ensuring compliance with international standards. Recognized for meticulous attention to detail and a strong focus on safety and efficiency. Adept at leading teams and collaborating with stakeholders to achieve project goals and optimize processes.  \par 
+\mainhead{Executive Summary} Resourceful and dedicated Mechanical Engineer with over 15 years of experience in quality assurance and control within the aeronautical and industrial sectors. Proven ability to manage complex projects while ensuring compliance with international standards. Recognized for meticulous attention to detail and a strong focus on efficiency and safety. Adept at leading teams and collaborating with diverse stakeholders to achieve project goals. Committed to continuous improvement and optimizing processes for better outcomes.  \par 
 \vspace{8pt} 
 \mainhead{Key Achievements} 
-\begin{itemizea}  \item \textbf{Cost Savings through Domestic Subcontracting:} Achieved significant financial savings by limiting project subcontracting to domestic firms, enhancing project coordination.
-\item \textbf{Process Redesign for Efficiency:} Redesigned manufacturing processes, resulting in substantial time savings and increased overall efficiency.
-\item \textbf{Standardized Product Development:} Developed standardized product families, enriching the company's offerings and reducing future development time and costs.  
+\begin{itemizea}  \item \textbf{Cost Savings through Domestic Subcontracting:} Achieved significant financial savings by limiting project subcontracting to domestic providers, enhancing coordination and control.
+\item \textbf{Process Optimization:} Redesigned technological manufacturing processes, resulting in substantial time savings and increased overall efficiency.
+\item \textbf{Successful Project Management:} Managed various high-value projects, ensuring compliance with standards and successful completion.  
 \end{itemizea}  
 \vspace{8pt} 
 \mainhead{Professional Experience} 
 \role{QA/QC Engineer}{Sonovision}{Sept 2022 - Present}
 \begin{itemize}
-\item Conduct quality control and final inspections for products in the aeronautical industry.
+\item Conduct quality control and final inspections on products.
 \item Manage document control and process control activities.
-\item Ensure compliance with quality assurance standards.
+\item Ensure compliance with QA/QC standards.
 \end{itemize}
 
 \role{Supervisor, Welding Engineer \& QA/QC Manager}{EPS}{Avg 2020 - Present}
 \begin{itemize}
-\item Supervise welding projects with significant financial values, ensuring compliance with project requirements.
-\item Manage subcontractors and oversee project documentation and standardization.
-\item Conduct acceptance of work and review documentation for project commissioning.
+\item Supervise welding activities and manage QA/QC processes for major projects.
+\item Prepare documentation for project approvals and certifications.
+\item Monitor investment and capital maintenance projects.
 \end{itemize}
 
 \role{Welding Engineer \& QA/QC Manager}{MONTAVAR LOLA}{Jan 2020 - Jul 2020}
 \begin{itemize}
-\item Lead QA/QC efforts for a major oil refinery project, ensuring compliance with operational permits.
-\item Prepare and submit documentation for commissioning of the refinery process plant.
+\item Conduct final tests and prepare documentation for operating permits.
+\item Oversee quality assurance processes in refinery projects.
+\item Ensure compliance with project specifications.
 \end{itemize}
 
 \role{QA/QC Engineer / Senior Industrial Inspector}{SGS}{Nov 2019 - Dec 2019}
 \begin{itemize}
-\item Conduct audits and verify production standards for subcontractors.
-\item Inspect manufacturing processes for a new thermal power plant.
+\item Perform audits and verify production standards for subcontractors.
+\item Inspect manufacturing processes for thermal power plant projects.
+\item Ensure compliance with QA/QC regulations.
 \end{itemize}
 
 \role{Site Supervisor}{Bureau Veritas}{Sep 2019 - Oct 2019}
 \begin{itemize}
-\item Supervise major gas pipeline construction, ensuring compliance with safety and quality standards.
-\item Manage site operations and coordinate with various stakeholders.
+\item Supervise major gas pipeline construction and welding works.
+\item Ensure compliance with safety regulations and standards.
+\item Collaborate with testing laboratories for quality assurance.
 \end{itemize}  
 \switchcolumn 
 \begin{adjustwidth}{\SidebarPadL}{\SidebarPadR} \raggedright
@@ -191,15 +194,15 @@
 \item NDT Inspection
 \item Document Control
 \item Process Control
-\item Project Management  
+\item Inspection Standards  
 \end{itemize}  
 \vspace{6mm} 
 \sidehead{Soft Skills \& Personality Traits} 
-\begin{itemize}  \item Resourceful
-\item Detail-oriented
+\begin{itemize}  \item Detail-oriented
+\item Resourceful
 \item Safety-focused
 \item Autonomous
-\item Meticulous  
+\item Effective communicator  
 \end{itemize}  
 \vspace{6mm} 
 \sidehead{Education \& Training} 
