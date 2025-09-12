@@ -8,39 +8,25 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # Install a TeX Live setup that covers all packages your template uses
-      - name: Install TeX Live + latexmk
+      - name: Install TeX Live
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            latexmk \
-            texlive-latex-base \
-            texlive-latex-recommended \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-fonts-extra \
-            texlive-lang-european
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
 
-      # Compile (runs until success or first error)
-      - name: Compile LaTeX (PDF)
-        run: |
-          latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error cv_pretty.tex
+      - name: Compile LaTeX
+        run: pdflatex cv_pretty.tex
 
-      # Upload cv_pretty.pdf as a downloadable artifact
-      - name: Upload PDF artifact
-        if: ${{ hashFiles('cv_pretty.pdf') != '' }}
-        uses: actions/upload-artifact@v4
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
         with:
-          name: CV-PDF
+          name: cv-pdf
           path: cv_pretty.pdf
-          if-no-files-found: error
