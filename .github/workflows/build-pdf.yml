@@ -5,7 +5,6 @@ on:
     paths:
       - 'cv_pretty.tex'
       - 'assets/**'
-      - '.github/workflows/build-pdf.yml'
   workflow_dispatch:
 
 permissions:
@@ -15,26 +14,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compile LaTeX (cached)
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: cv_pretty.tex
-          cache: true
-          latexmk_use_xelatex: false         
-          latexmk_shell_escape: false        
-          pre_compile: |
-            tlmgr update --self --all
-            tlmgr install \
-              collection-latexextra \
-              collection-fontsrecommended \
-              collection-fontsextra
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex lmodern
 
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: cv-pretty
-          path: cv_pretty.pdf
-          if-no-files-found: error
+      - name: Compile LaTeX
+        run: pdflatex cv_pretty.tex
+
+      # ⬇️ New: commit the generated PDF to the repo
+      - name: Commit PDF back to repo
+        if: ${{ success() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p build
+          mv -f cv_pretty.pdf build/cv_pretty.pdf
+          git add build/cv_pretty.pdf
+          git commit -m "build: update generated CV [skip ci]" || echo "No changes to commit"
+          git push
