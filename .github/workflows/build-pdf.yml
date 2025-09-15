@@ -5,6 +5,7 @@ on:
     paths:
       - 'cv_pretty.tex'
       - 'assets/**'
+      - '.github/workflows/build-pdf.yml'
   workflow_dispatch:
 
 permissions:
@@ -14,19 +15,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Install TeX Live
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex lmodern
-
-      - name: Compile LaTeX
-        run: pdflatex cv_pretty.tex
+      - name: Compile LaTeX (cached)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv_pretty.tex
+          cache: true
+          latexmk_use_xelatex: false         
+          latexmk_shell_escape: false        
+          pre_compile: |
+            tlmgr update --self --all
+            tlmgr install \
+              collection-latexextra \
+              collection-fontsrecommended \
+              collection-fontsextra
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
-          name: cv-pdf
+          name: cv-pretty
           path: cv_pretty.pdf
+          if-no-files-found: error
