@@ -41,7 +41,22 @@
 \setlength{\footskip}{14mm}  
 \setlength{\parindent}{0pt} 
 \setlength{\parskip}{2pt}  
-\setlist[itemize]{leftmargin=*,labelindent=0pt,labelsep=2.8mm,align=parleft,  itemsep=1pt,topsep=2pt,label=\textbullet} 
+\setlist[itemize]{leftmargin=*,labelindent=0pt,labelsep=2.8mm,align=parleft,  itemsep=1pt,topsep=2pt,label=\textbullet}
+\newlength{\TitlePad}
+\setlength{\TitlePad}{14mm} 
+\newcommand{\jobtitle}[1]{%
+  \begingroup
+  \parbox[t]{\dimexpr\textwidth-\RightBar-\Gutter-\TitlePad\relax}{%
+  \RaggedRight
+  \let\oldslash\slash
+  \renewcommand{\slash}{\oldslash\penalty0\hspace{0pt}}%
+  \emergencystretch=1em
+  {\titlefont\LARGE\bfseries
+\color{Brand} #1}%
+  }%
+  \par
+  \endgroup
+} 
 \newlist{itemizea}{itemize}{1} 
 \setlist[itemizea]{leftmargin=0pt,labelindent=0pt,labelsep=0pt,align=parleft,  itemsep=2pt,topsep=2pt,label={}}  
 \newcommand{
@@ -134,55 +149,55 @@
 \setcolumnwidth{\dimexpr\textwidth-\RightBar-\Gutter\relax,\RightBar}  
 \begin{paracol}{2} 
 \begin{leftcolumn} 
-\newcommand{\titlefont}{\fontfamily{Montserrat-LF}\selectfont} {\titlefont\LARGE\RaggedRight
-\color{Brand}\bfseries Technical Audit Engineer / Quality Inspector}\\[2pt]  
+\newcommand{\titlefont}{\fontfamily{Montserrat-LF}\selectfont} \jobtitle{Technical Audit Engineer / Quality Inspector} 
+\vspace{2pt}  
 \vspace{6pt} \par{\small
 \color{Brand}\bfseries  Presented by OIM, your trusted partner in Quality Services.  We specialise in supplying top-tier Quality Inspection Personnel to integrate and reinforce your teams.} 
 \end{leftcolumn} 
 \end{paracol}  
 \vspace{10pt}  
 \begin{paracol}{2}  
-\mainhead{Executive Summary} Experienced Wind Turbine Technician and Quality/HSE Inspector with over 16 years in the wind energy sector across France, Germany, Denmark, and Morocco. Expert in preventive and corrective maintenance, safety leadership, and international Full GWO training. Strong background in electrical, mechanical, and HSE operations within renewable energy infrastructures. Proven ability to conduct technical audits and inspections, ensuring compliance with international quality and safety standards.  \par 
+\mainhead{Executive Summary} Experienced Wind Turbine Technician and Quality/HSE Inspector with over 16 years in the wind energy sector across France, Germany, Denmark, and Morocco. Expert in preventive and corrective maintenance, safety leadership, and international Full GWO training. Strong background in electrical, mechanical, and HSE operations within renewable energy infrastructures. Proven ability to conduct technical audits and inspections while ensuring compliance with international quality and safety standards.  \par 
 \vspace{8pt} 
 \mainhead{Key Achievements} 
-\begin{itemizea}  \item \textbf{Quality Inspector PMO:} Supervised inspections of wind turbine components, ensuring compliance with international quality standards and optimizing operational efficiency.
-\item \textbf{Specialized Wind Turbine Expert Technician:} Operated and maintained V80, V90, and V112 wind turbines, coordinating internal quality audits to ensure compliance.
-\item \textbf{Quality Supervisor:} Performed technical audits and compliance checks prior to installation, documenting findings to support quality assurance processes.  
+\begin{itemizea}  \item \textbf{Quality Inspector:} Supervised inspections of wind turbine components, ensuring compliance with international quality standards.
+\item \textbf{Technical Audit Engineer:} Conducted technical audits and inspections of wind turbines, performing vibration analysis to optimize performance.
+\item \textbf{Specialized Wind Turbine Technician:} Operated and maintained V80, V90, and V112 wind turbines, reducing downtime through effective troubleshooting.  
 \end{itemizea}  
 \vspace{8pt} 
 \mainhead{Professional Experience} 
 \role{Technical Audit Engineer}{WPO France – Paris, France}{Since Oct. 2024}
 \begin{itemize}
 \item Conduct technical audits and inspections of wind turbines.
-\item Perform vibration analysis and ensure compliance with quality standards.
-\item Analyze NCRs and monitor corrective actions.
+\item Perform vibration analysis as a subject matter expert.
+\item Ensure compliance with international quality and safety standards.
 \end{itemize}
 
-\role{Quality Inspector PMO}{8.2 France – Saint-Nazaire, France}{Oct. 2022 - Oct. 2024}
+\role{Quality Inspector}{8.2 France – Saint-Nazaire, France}{Oct. 2022 - Oct. 2024}
 \begin{itemize}
-\item Supervised inspections of wind turbine components and ensured compliance with quality standards.
+\item Supervised inspections of wind turbine components, including nacelles, towers, and blades.
 \item Specialized in vibration analysis to identify mechanical anomalies.
-\item Performed generator alignment for optimal operational efficiency.
+\item Analyzed non-conformance reports and monitored corrective actions.
 \end{itemize}
 
 \role{Quality Supervisor}{EOS Spain – Barcelona, Spain}{Mar. 2021 - Sept. 2021}
 \begin{itemize}
 \item Supervised inspections of wind turbine components before assembly.
-\item Conducted technical audits and compliance checks prior to installation.
+\item Performed technical audits and compliance checks prior to installation.
 \item Documented findings and issued inspection reports.
 \end{itemize}
 
 \role{Specialized Wind Turbine Expert Technician}{Vestas France – Montpellier, France}{Mar. 2017 - Feb. 2021}
 \begin{itemize}
 \item Operated and maintained V80, V90, and V112 wind turbines.
-\item Conducted troubleshooting and performed high-voltage electrical interventions.
+\item Conducted troubleshooting and high-voltage electrical interventions.
 \item Coordinated internal quality audits to ensure compliance.
 \end{itemize}
 
 \role{Maintenance Technician – HSE Coordinator}{Siemens – Tarfaya, Morocco}{Mar. 2014 - Mar. 2017}
 \begin{itemize}
-\item Performed maintenance tasks for SWT 2.3S turbines and led HSE initiatives.
-\item Executed preventive and corrective maintenance to ensure optimal turbine performance.
+\item Performed maintenance tasks for SWT 2.3S turbines.
+\item Led HSE awareness initiatives and audits.
 \item Conducted safety inspections and enforced compliance with HSE regulations.
 \end{itemize}
 
@@ -206,22 +221,23 @@
 \item Mechanical maintenance
 \item HSE compliance
 \item SAP
-\item Microsoft Office
-\item Web/mobile software for inspections  
+\item Microsoft Office  
 \end{itemize}  
 \vspace{6mm} 
 \sidehead{Soft Skills \& Personality Traits} 
 \begin{itemize}  \item Reliable
+\item Autonomous
 \item Meticulous
 \item Safety-focused  
 \end{itemize}  
 \vspace{6mm} 
 \sidehead{Education \& Training} 
-\begin{itemize}  \item Professional Degree in Health, Safety and Environment (LP HSE) -- FST Tanger-Tetouan-Al Hocima (2014)
+\begin{itemize}  \item Professional Degree in Health, Safety and Environment -- FST Tanger-Tetouan-Al Hocima (2014)
 \item Specialized Technician in Electromechanical Automated Systems -- ISTA Marrakesh (2005)
 \item High School Diploma – Experimental Sciences -- Lycée Demnat (2003)
 \item Habilitation Electrique BT-HT NF C 18-510 -- PREMATECH (2028)
-\item Full GWO -- FMTC Rennes (2026)  
+\item Full GWO -- FMTC Rennes (2026)
+\item Languages: Arabic (native), French (advanced), English (intermediate)  
 \end{itemize}  
 \end{adjustwidth} 
 \end{paracol}  
